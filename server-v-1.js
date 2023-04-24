@@ -1,84 +1,17 @@
 // Import required modules
 const express = require('express');
 const bodyParser = require('body-parser');
-//const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const users = require('./db.json').users;
 
-// Set up database connection
-/*const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/my_database');
-
-// Define User schema
-const userSchema = new mongoose.Schema({
-  username: String,
-  password: String,
-  permissions: [String]
-});
-
-// Create User model
-const User = mongoose.model('User', userSchema);
-*/
 
 const app = express();
+
 // Use middleware to handle incoming requests
 app.use(bodyParser.urlencoded({extended :false}));
-
 let isLocked = false;
 
-//login page
-app.get('/',(req,res) => {
-    res.send(`
-         <h1>Login Form</h1>
-    <form method="POST" action="/login">
-      <label>
-        Username:
-        <input type="text" name="username">
-      </label>
-      <br>
-      <label>
-        Password:
-        <input type="password" name="password">
-      </label>
-      <br>
-      <button type="submit">Submit</button>
-    </form>
-    `)
-})
-
 app.use(bodyParser.json());
-// Define endpoint to handle login requests
-/* app.post('/login', async (req, res) => {
- console.log(req); 
-  const { username, password } = req.body;
-  console.log(username) 
-  console.log(password)
-  
-  fetch('http://localhost:5000/users/').then(res => res.json()).then(users => {
-  // Check if user exists in database
-  const user = users.filter(u => u.username === username);
-  console.log(user);
-  console.log(user[0].password);
-  if (!user) {
-    return res.status(401).json({ error: 'Invalid username or password' });
-  }
-
-  // Check if password is correct
-  // console.log(user[0].password);
-  const passwordMatch = (password === user[0].password);
-  if (!passwordMatch) {
-    return res.status(401).json({ error: 'Invalid username or password' });
-  }
-
-  // Generate JWT token
-  console.log(user[0].permissions);
-  console.log(user[0].permissions.includes('lock'));
-  const token = jwt.sign({ username, permissions: user[0].permissions, role: user[0].role}, 'secret-key');
-  
-  // Send token back to client
-  res.json({ token });
-  }); 
-}); */
 
 app.post('/login', (req, res) => {
   const { username, password } = req.body;
@@ -95,7 +28,7 @@ app.post('/login', (req, res) => {
   }
 
   // Generate JWT token
-  const token = jwt.sign({ username, permissions: user.permissions, role: user.role}, 'secret-key');
+  const token = jwt.sign({ username,  role: user.role,}, 'secret-key');
 
   // Send token as response
   res.json({ token });

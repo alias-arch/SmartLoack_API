@@ -5,35 +5,84 @@
       "username": "iliass",
       "password": "somepassword",
       "role": "admin",
-      "permissions":"Allowed"
+      "allowed": true
     },
     {
       "id": 2,
       "username": "abdellah",
-      "password": "password",
       "role": "user",
-      "permissions":"Allowed"
+      "allowed": false,
+      "password": "password"
     },
     {
       "id": 3,
       "username": "youssef",
       "password": "pass",
       "role": "user",
-      "permissions":"Allowed"
+      "allowed": true
     },
     {
       "id": 4,
-      "username": "issam",
-      "password": "somepass",
+      "username": "issam m9wed",
       "role": "user",
-      "permissions":"Not Allowed"
+      "allowed": true,
+      "password": "somepass"
     },
     {
+      "id": 5,
       "username": "wassim",
-      "password": "passw",
       "role": "user",
-      "permissions":"Not Allowed",
-      "id": 5
+      "allowed": true,
+      "password": "passw"
+    },
+    {
+      "id": 6,
+      "username": "toufiq",
+      "role": "user",
+      "allowed": true,
+      "password": "pass"
+    },
+    {
+      "id": 7,
+      "username": "BOUKRANI",
+      "role": "user",
+      "allowed": true,
+      "password": "aissam"
+    },
+    {
+      "id": 8,
+      "username": "role",
+      "role": "user",
+      "allowed": true,
+      "password": "role"
+    },
+    {
+      "id": 9,
+      "username": "saif",
+      "role": "user",
+      "allowed": true,
+      "password": "here"
+    },
+    {
+      "id": 10,
+      "username": "TEST",
+      "role": "user",
+      "allowed": true,
+      "password": "test"
+    },
+    {
+      "id": 11,
+      "username": "hamza",
+      "role": "user",
+      "allowed": true,
+      "password": "hamid"
+    },
+    {
+      "id": 12,
+      "username": "oussama",
+      "role": "user",
+      "allowed": true,
+      "password": "test"
     }
   ]
 }
